@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Artists_albums (
 CREATE TABLE IF NOT EXISTS Tracks (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(80) NOT null,
-	duration numeric(3,2),
+	duration time(0),
 	albums_id INTEGER NOT NULL REFERENCES Albums(id)
 );
 
@@ -43,4 +43,11 @@ CREATE TABLE IF NOT EXISTS Collections_tracks (
 	id SERIAL PRIMARY KEY,
 	collections_id INTEGER NOT NULL REFERENCES Collections(id),
 	tracks_id INTEGER NOT NULL REFERENCES Tracks(id)
+);
+
+CREATE TABLE IF NOT EXISTS Tracks_2 (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(80) NOT null,
+	duration time(0),
+	albums_id INTEGER NOT NULL REFERENCES Albums(id)
 );
